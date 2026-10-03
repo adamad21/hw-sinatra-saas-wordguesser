@@ -29,6 +29,7 @@ class WordGuesserGame
   end
 
   def check_win_or_lose
+    return :play if @word.empty?
     return :lose if @wrong_guesses.length >= 7
     return :win if @word.chars.all? { |c| @guesses.include?(c.downcase) }
     :play
